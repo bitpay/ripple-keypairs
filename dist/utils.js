@@ -18,7 +18,7 @@ exports.hexToBytes = hexToBytes;
 function computePublicKeyHash(publicKeyBytes) {
     const hash256 = hashjs.sha256().update(publicKeyBytes).digest();
     const hash160 = hashjs.ripemd160().update(hash256).digest();
-    return hash160;
+    return Buffer.from(hash160);
 }
 exports.computePublicKeyHash = computePublicKeyHash;
 function seedFromPhrase(phrase) {
